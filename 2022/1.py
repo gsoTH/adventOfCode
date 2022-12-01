@@ -6,25 +6,30 @@ class Elf:
         self.number = number
         self.calories = 0
 
-    def add(calories):
+    def add(self, calories):
         self.calories = self.calories + calories
+
 
 
 allElfes = []
 
-# Read Lines from file
 with open('1_input.txt') as input_file:
-    
+    elf = Elf(len(allElfes))
     for line in input_file:
         if line == '\n':
-            print('blank\n', end = '')
+            allElfes.append(elf)
+            elf = Elf(len(allElfes)) 
         else:
-            print(line, end='')
+            elf.add(int(line))
+    allElfes.append(elf)
 
 
-# add up until blank line 
+maxCalories = -1
+maxIndex = -1 
+for elf in allElfes:
+    if elf.calories > maxCalories:
+        maxCalories = elf.calories
+        maxIndex = elf.number
 
-
-# find largest sum
-
+print(maxCalories, maxIndex)
 
