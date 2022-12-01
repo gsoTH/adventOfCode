@@ -31,5 +31,4 @@ for elf in allElfes:
         maxCalories = elf.calories
         maxIndex = elf.number
 
-print(maxCalories, maxIndex)
-
+print(maxCalories, maxIndex+1)      # In the example above, this is 24000 (carried by the fourth Elf).
