@@ -1,5 +1,5 @@
 # https://adventofcode.com/2022/day/1
-# Find the Elf carrying the most Calories. How many total Calories is that Elf carrying?
+# 1.1: Find the Elf carrying the most Calories. How many total Calories is that Elf carrying?
 
 class Elf:
     def __init__(self, number):
