@@ -46,11 +46,11 @@ with open('2_input.txt') as input_file:
                         print('Rock')
                         sum = sum + 1
                     case 'B': 
-                        print('Scissors')
-                        sum = sum + 3
-                    case 'C':
                         print('Paper')
                         sum = sum + 2
+                    case 'C':
+                        print('Scissors')
+                        sum = sum + 3
             case 'Z':
                 print('win')
                 sum = sum + 6
