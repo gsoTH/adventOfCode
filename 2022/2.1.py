@@ -38,15 +38,42 @@ with open('2_input.txt') as input_file:
             case 'X':
                 print('Rock')
                 sum = sum + 1
+                match chars[0]:
+                    case 'A':
+                        print('draw')
+                        sum = sum + 3
+                    case 'B': 
+                        print('lost')
+                        sum = sum + 0
+                    case 'C':
+                        print('won')
+                        sum = sum + 6
             case 'Y': 
                 print('Paper')
                 sum = sum + 2
+                match chars[0]:
+                    case 'A':
+                        print('won')
+                        sum = sum + 6
+                    case 'B': 
+                        print('draw')
+                        sum = sum + 3
+                    case 'C':
+                        print('lost')
+                        sum = sum + 0
             case 'Z':
                 print('Scissors')
                 sum = sum + 3
-        
+                match chars[0]:
+                    case 'A':
+                        print('lost')
+                        sum = sum + 0
+                    case 'B': 
+                        print('won')
+                        sum = sum + 6
+                    case 'C':
+                        print('draw')
+                        sum = sum + 3
 
-        # Rundenergebnis auswerten
-        # Summe bilden (Eigene Auswahl + Rundenergebnis)
+print(sum)
 
-# Summe ausgeben
