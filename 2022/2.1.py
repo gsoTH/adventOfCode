@@ -21,7 +21,10 @@
 #   0 if you lost, 3 if the round was a draw, and 6 if you won
 
 
-# Zeilenweise einlesen
+
+with open('2_input.txt') as input_file:
+    for line in input_file:
+        print(line)
     # Spalten aufteilen
         # Inhalt übersetzen
         # Rundenergebnis auswerten
