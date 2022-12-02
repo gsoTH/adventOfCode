@@ -24,8 +24,9 @@
 
 with open('2_input.txt') as input_file:
     for line in input_file:
-        print(line)
-    # Spalten aufteilen
+        cleanLine = line.strip()        # Remove a Newline Character From the String 
+        chars = cleanLine.split(' ')
+        print(chars)
         # Inhalt übersetzen
         # Rundenergebnis auswerten
         # Summe bilden (Eigene Auswahl + Rundenergebnis)
