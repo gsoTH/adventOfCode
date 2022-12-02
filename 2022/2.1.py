@@ -21,13 +21,31 @@
 #   0 if you lost, 3 if the round was a draw, and 6 if you won
 
 
+sum = 0
 
 with open('2_input.txt') as input_file:
     for line in input_file:
         cleanLine = line.strip()        # Remove a Newline Character From the String 
         chars = cleanLine.split(' ')
-        print(chars)
-        # Inhalt übersetzen
+        match chars[0]:
+            case 'A':
+                print('Rock')
+            case 'B': 
+                print('Paper')
+            case 'C':
+                print('Scissors')
+        match chars[1]:
+            case 'X':
+                print('Rock')
+                sum = sum + 1
+            case 'Y': 
+                print('Paper')
+                sum = sum + 2
+            case 'Z':
+                print('Scissors')
+                sum = sum + 3
+        
+
         # Rundenergebnis auswerten
         # Summe bilden (Eigene Auswahl + Rundenergebnis)
 
