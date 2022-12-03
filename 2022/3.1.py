@@ -5,11 +5,15 @@
 #    Lowercase item types a through z have priorities 1 through 26.
 
 sum = 0
+nr = 0
 
 with open('3_input.txt') as input_file:
-    for newline in input_file:
-        line = newline.strip()        # Remove a Newline Character From the String 
-        print(line)
-        # Zeilen in zwei Hälften aufteilen
+    for l in input_file:
+        nr = nr + 1
+        line = l.strip()                    # Remove a Newline Character From the String 
+        half = int(len(line)/2)             # /2 returns double
+        left = line[0 : half]               # Get the characters from position x to position y (not included):
+        right = line[half : len(line)]
+        print(left, ' ', right)
         # Element finden, das in beiden Hälften vorkommt
         # Prioriät messen, Summe bilden
