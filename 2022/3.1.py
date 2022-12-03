@@ -7,17 +7,36 @@
 sum = 0
 nr = 0
 
+def findCharInBothStrings(left, right):
+    for l in left:
+            for r in right:
+                if l == r:
+                    return l
+
+
+def findPriority(char):
+    # ord('a') = 97
+    # ord('A') = 65
+    priority = 0
+    for candidate in range(97, (97+26+1)):           # 26 chars, stop is exclusive --> +1 
+        priority = priority + 1
+        if candidate == ord(char):
+            return priority
+    
+    for candidate in range(65, (65+26+1)):
+        priority = priority + 1
+        if candidate == ord(char):
+            return priority
+
+
 with open('3_input.txt') as input_file:
     for uncleanLine in input_file:
         nr = nr + 1
         line = uncleanLine.strip()                    # Remove a Newline Character From the String 
-        half = int(len(line)/2)             # /2 returns double
-        left = line[0 : half]               # Get the characters from position x to position y (not included):
+        half = int(len(line)/2)                       # /2 returns double
+        left = line[0 : half]                         # Get the characters from position x to position y (not included):
         right = line[half : len(line)]
-        print(left, ' ', right)
-        for l in left:
-            for r in right:
-                if l == r:
-                    print(l, " ", r)
-        # Element finden, das in beiden Hälften vorkommt
-        # Prioriät messen, Summe bilden
+        char = findCharInBothStrings(left, right)
+        sum = sum + findPriority(char)
+
+print(sum)
