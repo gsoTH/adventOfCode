@@ -24,9 +24,9 @@ def findPriority(char):
             return priority
     
     for candidate in range(65, (65+26+1)):
-        priority = priority + 1
         if candidate == ord(char):
             return priority
+        priority = priority + 1
 
 
 with open('3_input.txt') as input_file:
@@ -37,6 +37,8 @@ with open('3_input.txt') as input_file:
         left = line[0 : half]                         # Get the characters from position x to position y (not included):
         right = line[half : len(line)]
         char = findCharInBothStrings(left, right)
-        sum = sum + findPriority(char)
+        priority = findPriority(char)
+        print(char, priority)
+        sum = sum + priority
 
 print(sum)
