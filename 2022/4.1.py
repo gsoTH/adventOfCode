@@ -7,22 +7,23 @@ sum = 0
 with open('4_input.txt') as input_file:
     for uncleanLine in input_file:
         line = uncleanLine.strip()
-        print(line)
+        #print(line)
         fields = line.split(',')
         left = fields[0].split('-')
         right = fields[1].split('-')
-        print(left, ' ', right)
+        #print(left, ' ', right)
         a = int(left[0])
         b = int(left[1])
         c = int(right[0])
         d = int(right[1])
+
+
         if a >= c and a <= d:
             if b >= c and b <= d:
                 sum = sum + 1
-                print("left contained")
-        if c >= a and c <= b:
+        elif c >= a and c <= b:
             if d >= a and d <= b:
                 sum = sum + 1 
-                print("right cotained")
+        
 
-print(sum)
+print(sum)  # 579 too low
