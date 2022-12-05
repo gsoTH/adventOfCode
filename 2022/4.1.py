@@ -17,13 +17,19 @@ with open('4_input.txt') as input_file:
         c = int(right[0])
         d = int(right[1])
 
-
+        text = left[0] + '-' + left[1] + '\t' + right[0] + '-' + right[1] + '\t'
         if a >= c and a <= d:
             if b >= c and b <= d:
                 sum = sum + 1
-        elif c >= a and c <= b:
+                text = text + "left contained"
+                continue
+            
+        if c >= a and c <= b:
             if d >= a and d <= b:
                 sum = sum + 1 
+                text = text + "right contained"
+
+        print(text)
         
 
 print(sum)  # 579 too low
