@@ -8,7 +8,10 @@ with open('4_input.txt') as input_file:
     for uncleanLine in input_file:
         line = uncleanLine.strip()
         print(line)
-    #Spalten aufteilen
+        fields = line.split(',')
+        left = fields[0].split('-')
+        right = fields[1].split('-')
+        print(left, ' ', right)
     #Wertebereiche finden
         #Prüfen ob linke Seite die rechte Seite vollkommen abdeckt
         #Prüfen ob umgekehrt 
