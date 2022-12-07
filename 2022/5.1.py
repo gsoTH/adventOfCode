@@ -1,6 +1,9 @@
 # https://adventofcode.com/2022/day/5
 
 import os
+import re
+
+# Pfade zuverlässig angeben: https://stackoverflow.com/a/4060259
 __location__ = os.path.realpath(
     os.path.join(os.getcwd(), os.path.dirname(__file__)))
 
@@ -28,7 +31,6 @@ def PrintStacks(stacksToPrint):
 stacks = [[],[],[]]
 
 with open(os.path.join(__location__, '5_input_stacks.txt')) as stack_input_file:
-    lineIndex = 0
     for line in stack_input_file:
         
         stackLimit = 3
@@ -40,10 +42,19 @@ with open(os.path.join(__location__, '5_input_stacks.txt')) as stack_input_file:
         
 
 for stack in stacks:
-    del stack[-1]
+    del stack[-1]                                                     # Nummern entfernen
 PrintStacks(stacks)
             
-                
+moves = []
+with open(os.path.join(__location__, '5_input_moves.txt')) as moves_input_file:
+    for line in moves_input_file:
 
-            # moves einlesen und auf Liste anwenden
-                # oberste Kiste aller Stacks ausgeben
+
+        result = re.search('move (\d+) from (\d+) to (\d+)', line)
+        amount = result.group(1)
+        fromStack = result.group(2)
+        toStack = result.group(3)
+
+
+        #print(amount, fromStack, toStack)
+         
