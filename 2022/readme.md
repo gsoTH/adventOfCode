@@ -16,6 +16,7 @@
     while len(stacks) < 9:
         stacks.append([])
     ```
+- Anzahl Vorkommen mit z.B. `amount = stream.count(char)`
 
 
 ## Zugriff auf Dateien zuverlässig implementieren
