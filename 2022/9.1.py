@@ -1,0 +1,60 @@
+# https://adventofcode.com/2022/day/9
+
+# Find the signal strength during the 20th, 60th, 100th, 140th, 180th, and 220th cycles. What is the sum of these six signal strengths?
+    # addx V takes two cycles to complete. After two cycles, the X register is increased by the value V. (V can be negative.)
+    # noop takes one cycle to complete. It has no other effect.
+
+import os
+
+__location__ = os.path.realpath(
+    os.path.join(os.getcwd(), os.path.dirname(__file__)))
+
+
+instructions = []
+
+with open(os.path.join(__location__, '9_input.txt')) as input_file:
+    for uncleanLine in input_file:
+        line = uncleanLine.strip()
+        cols = line.split(' ')
+        
+        duration = 1
+        amount = 0
+        if cols[0] == 'addx':
+            duration = 2
+            amount = int(cols[1])
+        
+        
+        instruction = []
+        instruction.append(duration)
+        instruction.append(amount)
+
+        instructions.append(instruction)
+
+relevantCycles = [20, 60, 100, 140, 180, 220]
+
+instructionCounter = 0
+x = 1
+signalSum = 0
+#print('cycle\t iC\t x\t sS\tinstr')
+
+for cycle in range(1, 221):
+    instructions[instructionCounter][0]-=1
+    instr = instructions[instructionCounter][0]
+
+
+    if cycle in relevantCycles:                     # Find the signal strength during (!) the cycle
+        signalSum += x * cycle
+
+    
+    if instr == 0:
+        x += instructions[instructionCounter][1]
+        instructionCounter += 1
+    
+    
+    #print(cycle,'\t', instructions[instructionCounter][1],'\t', x,'\t', signalSum,'\t',instr)
+
+print(signalSum)
+    
+        
+
+
