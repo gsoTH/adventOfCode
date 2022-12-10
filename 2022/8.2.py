@@ -9,13 +9,20 @@ import os
 __location__ = os.path.realpath(
     os.path.join(os.getcwd(), os.path.dirname(__file__)))
 
+
+def PrintTrees(input):
+    for line in input:
+        print(line)
+
+
+
 trees = []
 with open(os.path.join(__location__, '8_input.txt')) as input_file:
     for uncleanLine in input_file:
         line = uncleanLine.strip()
         trees.append(line)
 
-visibleTrees = 0
+
 
 
 numRows = len(trees)
@@ -23,9 +30,12 @@ numCols = len(trees[0])
 
 maxScore = -1
 
+
+
 for row in range(1, numRows-1):
     for col in range(1, numCols-1):
-        candidate = trees[row][col]
+
+        candidate = int(trees[row][col])
 
         distances = [0,0,0,0]
 
@@ -34,13 +44,13 @@ for row in range(1, numRows-1):
         while i > 0:
             i -= 1
             distances[0] += 1
-            if trees[i][col] >= candidate:
+            if int(trees[i][col]) >= candidate:
                 break
     
         # look down
         for i in range(row+1, numRows):
             distances[1] += 1
-            if trees[i][col] >= candidate:
+            if int(trees[i][col]) >= candidate:
                 break
 
         # look left
@@ -48,18 +58,18 @@ for row in range(1, numRows-1):
         while i > 0:
             i-=1
             distances[2] += 1
-            if trees[row][i] >= candidate:
+            if int(trees[row][i]) >= candidate:
                 break
 
         # look right
         for i in range(col+1, numCols):
             distances[3] += 1
-            if trees[row][i] >= candidate:
+            if int(trees[row][i]) >= candidate:
                 break
 
         scenicScore = distances[0] * distances[1] * distances[2] * distances[3]
         if scenicScore > maxScore:
             maxScore = scenicScore
 
-
+PrintTrees(trees)
 print(maxScore) # 1311 --> too low
