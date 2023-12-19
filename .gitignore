@@ -127,3 +127,17 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Elendes PyCharm
+.idea/.gitignore
+.idea/adventOfCode.iml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/inspectionProfiles/profiles_settings.xml
+2023/.idea/.gitignore
+2023/.idea/2023.iml
+2023/.idea/misc.xml
+2023/.idea/modules.xml
+2023/.idea/vcs.xml
+2023/.idea/inspectionProfiles/profiles_settings.xml
